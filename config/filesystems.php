@@ -53,18 +53,6 @@ return [
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
         ],
 
-        'oss1' => [
-            'driver' => 'oss',
-            'access_id' => 'LTAI5tD4DH7ezmZuD2sGrbft',
-            'access_key' =>  'bLSdJpKSTf2fjlLmI3DjbLOIe4pBuk',
-            'bucket' => 'alibaba-assigment',
-            'endpoint' => 'oss-cn-hangzhou.aliyuncs.com ', // take Hangzhou as an example
-            'cdndomain' => "[1jeemaa1] ", // it needs to be written when CDN is used, HTTPS: // plus bucket domain name
-            'SSL' => true, // true use 'HTTPS: //' false use 'http: //'. Default false,
-            'iscname' => false, // use custom domain name or not, true: storage.url() will use custom CDN or domain name to generate file URL, false: use external node to generate URL
-            'debug' => false,
-        ],
-
         'oss' => [
             'driver' => 's3',
             'key' => env('OSS_ACCESS_KEY_ID'),
