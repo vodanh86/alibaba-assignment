@@ -2,7 +2,7 @@
 
 use App\Models\File; 
 
-$files = File::all();
+$file = File::all()->last();
 ?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -44,26 +44,16 @@ $files = File::all();
 
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                 <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
+                    @if ($file)
+                    <image width="100%" src="{{env('OSS_URL').$file->url}}"/> 
+                    @endif
+                </div>
+                <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
                     <h1>Hello Alibaba Cloud</h1>
                 </div>
 
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                    <div class="ml-4 text-lg leading-7 font-semibold">To upload more images, you can login <a href="admin/files" class=" text-gray-700 dark:text-gray-500 underline">here</a> user/pass is : admin/admin</div>
-                    <div class="grid grid-cols-1 md:grid-cols-2">
-                        @foreach ($files as $file)
-                        <div class="p-6">
-                            <div class="flex items-center">
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel.com/docs" class="underline text-gray-900 dark:text-white">{{$file->name}}</a></div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                   <image width="100%" src="{{env('OSS_URL').$file->url}}"/> 
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-                    </div>
+                    <div class="ml-4 text-lg leading-7 font-semibold">To update logo, you can login <a href="admin/files" class=" text-gray-700 dark:text-gray-500 underline">here</a> user/pass is : admin/admin</div>
                 </div>
 
                 <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
